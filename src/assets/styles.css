@@ -1,0 +1,158 @@
+/* src/assets/styles.css */
+
+/* Общие стили */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+  }
+  
+  /* Стили для хедера */
+  header {
+    background-color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header-top {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  nav {
+    display: flex;
+    gap: 15px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  /* Стили для каталога товаров */
+  .product-catalog {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  
+  .product-catalog input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Стили для рекламы */
+  .advertisement {
+    background-color: #eaeaea;
+    padding: 40px 20px;
+    text-align: center;
+    margin: 20px;
+    border-radius: 8px;
+  }
+  
+  .advertisement h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .advertisement p {
+    font-size: 16px;
+  }
+  
+  /* Популярные категории */
+  .popular-categories {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  
+  .popular-categories h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .category-list {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .category-item {
+    flex: 1;
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  /* Стили для футера */
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+  }
+  
+  /* Стили для страницы контактов */
+  .contacts form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .contacts input,
+  .contacts textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Стили для раздела "Сертификаты" */
+  .certification {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  
+  .certification h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .certification img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  /* Сотрудничество */
+  .partners-logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  
+  .partners-logos img {
+    max-height: 60px;
+  }
+  
