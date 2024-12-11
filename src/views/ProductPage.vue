@@ -4,11 +4,9 @@
     <div v-if="loading">Loading...</div>
     <div v-else class="product-list">
       <div class="product-card" v-for="product in products" :key="product.id">
-        <img :src="product.image" alt="Product image" v-if="product.image" />
         <h3>{{ product.name }}</h3>
-        <p>{{ product.content }}</p>
-        <p class="price">Price: ${{ product.price }}</p>
-        <p class="stock">Stock: {{ product.stock }}</p>
+        <p>{{ product.description }}</p>
+        <p class="category">Category: {{ product.category_name }}</p>
       </div>
     </div>
   </div>
@@ -22,21 +20,29 @@ export default {
   data() {
     return {
       products: [],
+      categories: [],
       loading: true,
     };
   },
   methods: {
-    fetchProducts() {
-      axios
-        .get('http://127.0.0.1:8000/api/products')
-        .then((response) => {
-          this.products = response.data;
-          this.loading = false;
-        })
-        .catch((error) => {
-          console.error('Error fetching products:', error);
-          this.loading = false;
-        });
+    async fetchProducts() {
+      try {
+        // Запрос продуктов
+        const productsResponse = await axios.get('http://127.0.0.1:8000/api/products');
+        // Запрос категорий
+        const categoriesResponse = await axios.get('http://127.0.0.1:8000/api/categories');
+        
+        // Сопоставление продуктов с их категориями
+        this.categories = categoriesResponse.data;
+        this.products = productsResponse.data.map(product => ({
+          ...product,
+          category_name: this.categories.find(category => category.id === product.category_id)?.name || 'Unknown',
+        }));
+        this.loading = false;
+      } catch (error) {
+        console.error('Error fetching products or categories:', error);
+        this.loading = false;
+      }
     },
   },
   created() {
@@ -90,11 +96,17 @@ export default {
 
 .product-card .price {
   font-weight: bold;
-  color: #E4530F;
+  color: blue;
 }
 
 .product-card .stock {
   font-size: 0.9em;
   color: #555;
+}
+
+.product-card .category {
+  font-size: 0.9em;
+  color: #777;
+  font-style: italic;
 }
 </style>
